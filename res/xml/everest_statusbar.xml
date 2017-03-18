@@ -74,6 +74,13 @@
             android:summary="@string/battery_bar_summary"
             android:fragment="com.everest.basecamp.fragments.BatteryBar" />
 
+        <!-- Bluetooth battery status -->
+        <com.everest.support.preferences.SystemSettingSwitchPreference
+            android:key="bluetooth_show_battery"
+            android:title="@string/status_bar_bluetooth_battery_title"
+            android:summary="@string/status_bar_bluetooth_battery_summary"
+            android:defaultValue="true" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
