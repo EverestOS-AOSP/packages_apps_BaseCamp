@@ -41,6 +41,9 @@ import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.Indexable;
 import com.android.settingslib.search.SearchIndexable;
 
+import com.everest.basecamp.fragments.quicksettings.QsHeaderImageSettings;
+import com.everest.support.preferences.SystemSettingListPreference;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
