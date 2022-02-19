@@ -277,4 +277,9 @@
     <string name="global_actions_logout">Logout</string>
     <string name="global_actions_emergency">Emergency</string>
     <string name="global_actions_device_controls">Device controls</string>
+
+    <!-- Nav bar -->
+    <string name="theme_customization_navbar_title">Navbar style</string>
+    <string name="theme_customization_navbar_summary">Set custom navigation bar style</string>
+
 </resources>

@@ -60,6 +60,13 @@
             android:summary="@string/themes_udfps_icon_summary"
             android:fragment="com.everest.basecamp.fragments.themes.UdfpsIcons" />
 
+    <!-- Navbar Style -->
+    <Preference
+        android:key="android.theme.customization.navbar"
+        android:title="@string/theme_customization_navbar_title"
+        android:summary="@string/theme_customization_navbar_summary"
+        android:fragment="com.everest.basecamp.fragments.NavbarStyles"/>
+
     </PreferenceCategory>
 
 </PreferenceScreen>
