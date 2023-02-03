@@ -92,4 +92,8 @@
         <item name="android:lineHeight">15sp</item>
         <item name="android:textColor">?android:attr/textColorSecondary</item>
     </style>
+
+    <!-- Monet wallpaper -->
+    <style name="Theme.WallpaperColorPicker.Dialog.Alert" parent="@android:style/Theme.DeviceDefault.Dialog.Alert">
+    </style>
 </resources>
