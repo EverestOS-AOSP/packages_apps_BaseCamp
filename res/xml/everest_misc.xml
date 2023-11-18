@@ -19,6 +19,11 @@
             android:defaultValue="15"
             settings:units="%" />
 
+        <Preference
+            android:key="smart_pixels"
+            android:title="@string/smart_pixels_title"
+            android:summary="@string/smart_pixels_summary"
+            android:fragment="com.everest.basecamp.fragments.SmartPixels" />
     </PreferenceCategory>
 
 </PreferenceScreen>
