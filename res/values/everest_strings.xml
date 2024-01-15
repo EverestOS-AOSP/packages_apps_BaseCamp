@@ -872,4 +872,8 @@
     <string name="qs_panel_style_reflected">Reflected</string>
     <string name="qs_panel_style_surround">Surround</string>
     <string name="qs_panel_style_thin">ThinLine</string>
+
+    <!-- Brightness slider styles -->
+    <string name="theme_customization_brightness_slider_title">Brightness slider style</string>
+    <string name="theme_customization_brightness_slider_summary">Set custom brightness slider style</string>
 </resources>
