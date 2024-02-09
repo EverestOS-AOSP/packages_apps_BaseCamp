@@ -243,4 +243,8 @@
     <!-- Brightness TextView-->
     <string name="brightness_percent_title">Brightness Percentage</string>
     <string name="brightness_percent_summary">Show hide brightness percentage text</string> 
+
+    <!-- Navigation -->
+    <string name="navigation_bar_category">Navigation Bar</string>
+    <string name="system_navigation_summary">Configure navigation menus</string>
 </resources>

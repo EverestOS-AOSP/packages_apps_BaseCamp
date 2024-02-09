@@ -18,6 +18,13 @@
             android:summary="@string/sound_engine_summary"
             android:fragment="com.everest.basecamp.fragments.sound.SoundEngine" />
 
+        <Preference
+            android:key="gesture_system_navigation"
+            android:title="@string/system_navigation_title"
+            android:summary="@string/system_navigation_summary"
+            android:fragment="com.android.settings.gestures.SystemNavigationGestureSettings"
+            settings:controller="com.android.settings.gestures.SystemNavigationPreferenceController" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>
