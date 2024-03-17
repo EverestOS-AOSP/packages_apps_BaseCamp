@@ -39,4 +39,11 @@
 
     <!-- Preference icon foreground image inset (from background edge to foreground edge) -->
     <dimen name="preference_icon_foreground_image_inset">6dp</dimen>
+
+    <!-- Sound Engine -->
+    <dimen name="sound_engine_profile_card_height">128dp</dimen>
+    <dimen name="sound_engine_profile_card_radius">22dp</dimen>
+    <dimen name="sound_engine_label_bottom">12dp</dimen>
+    <dimen name="sound_engine_label_start">12dp</dimen>
+    <dimen name="selected_card_border_width">1.5dp</dimen>
 </resources>

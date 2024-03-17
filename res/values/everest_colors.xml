@@ -34,4 +34,7 @@
     <color name="acc2">@android:color/system_accent2_100</color>
     <color name="acc3">@android:color/system_accent1_600</color>
     <color name="homepage_everest_background">#0060FF</color>
+
+    <!-- Sound Engine -->
+    <color name="sound_engine_menu_border_selected_color">#0b6ae2</color>
 </resources>
