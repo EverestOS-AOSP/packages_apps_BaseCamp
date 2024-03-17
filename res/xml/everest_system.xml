@@ -26,6 +26,19 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="Sound"
+        android:title="@string/sound_category">
+
+    <!-- Sound Engine -->
+    <Preference
+        android:key="sound_engine"
+        android:title="@string/sound_engine_title"
+        android:summary="@string/sound_engine_summary"
+        android:fragment="com.everest.basecamp.fragments.sound.SoundEngine" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="navigation"
         android:title="@string/navigation_bar_category">
 
