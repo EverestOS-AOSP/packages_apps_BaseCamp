@@ -47,10 +47,7 @@ import com.everest.support.preferences.SecureSettingSwitchPreference;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 @SearchIndexable
 public class LockScreenSettings extends SettingsPreferenceFragment 
@@ -62,26 +59,11 @@ public class LockScreenSettings extends SettingsPreferenceFragment
 
     private static final String KEY_WEATHER = "lockscreen_weather_enabled";
 
-    private static final String MAIN_WIDGET_1_KEY = "main_custom_widgets1";
-    private static final String MAIN_WIDGET_2_KEY = "main_custom_widgets2";
-    private static final String EXTRA_WIDGET_1_KEY = "custom_widgets1";
-    private static final String EXTRA_WIDGET_2_KEY = "custom_widgets2";
-    private static final String EXTRA_WIDGET_3_KEY = "custom_widgets3";
-    private static final String EXTRA_WIDGET_4_KEY = "custom_widgets4";
     private Preference mWeather;
     private OmniJawsClient mWeatherClient;
 
     	private SwitchPreferenceCompat mKGCustomClockColor;
     	private SecureSettingSwitchPreference mDoubleLineClock;
-
-    private Preference mMainWidget1;
-    private Preference mMainWidget2;
-    private Preference mExtraWidget1;
-    private Preference mExtraWidget2;
-    private Preference mExtraWidget3;
-    private Preference mExtraWidget4;
-
-    private Map<Preference, String> widgetKeysMap = new HashMap<>();
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -105,25 +87,6 @@ public class LockScreenSettings extends SettingsPreferenceFragment
         mWeather = (Preference) findPreference(KEY_WEATHER);
         mWeatherClient = new OmniJawsClient(getContext());
         updateWeatherSettings();
-
-        mMainWidget1 = findPreference(MAIN_WIDGET_1_KEY);
-        mMainWidget2 = findPreference(MAIN_WIDGET_2_KEY);
-        mExtraWidget1 = findPreference(EXTRA_WIDGET_1_KEY);
-        mExtraWidget2 = findPreference(EXTRA_WIDGET_2_KEY);
-        mExtraWidget3 = findPreference(EXTRA_WIDGET_3_KEY);
-        mExtraWidget4 = findPreference(EXTRA_WIDGET_4_KEY);
-
-        List<Preference> widgetPreferences = Arrays.asList(mMainWidget1, mMainWidget2, mExtraWidget1, mExtraWidget2, mExtraWidget3, mExtraWidget4);
-        for (Preference widgetPref : widgetPreferences) {
-            widgetPref.setOnPreferenceChangeListener(this);
-            widgetKeysMap.put(widgetPref, "");
-        }
-
-        String mainWidgets = Settings.System.getString(getActivity().getContentResolver(), "lockscreen_widgets");
-        String extraWidgets = Settings.System.getString(getActivity().getContentResolver(), "lockscreen_widgets_extras");
-
-        setWidgetValues(mainWidgets, mMainWidget1, mMainWidget2);
-        setWidgetValues(extraWidgets, mExtraWidget1, mExtraWidget2, mExtraWidget3, mExtraWidget4);
     }
 
     @Override
@@ -136,11 +99,6 @@ public class LockScreenSettings extends SettingsPreferenceFragment
                     Settings.Secure.LOCKSCREEN_USE_DOUBLE_LINE_CLOCK, value ? 1 : 0);
             return true; 
         }
-        else if (widgetKeysMap.containsKey(preference)) {
-            widgetKeysMap.put(preference, String.valueOf(newValue));
-            updateWidgetPreferences();
-            return true;
-        }
         return false;
     }  
 
@@ -148,34 +106,6 @@ public class LockScreenSettings extends SettingsPreferenceFragment
         ContentResolver resolver = mContext.getContentResolver();
         Settings.Secure.putIntForUser(resolver,
                 Settings.Secure.DOZE_ON_CHARGE, 0, UserHandle.USER_CURRENT);
-    }
-
-    private void setWidgetValues(String widgets, Preference... preferences) {
-        if (widgets == null) {
-            return;
-        }
-        List<String> widgetList = Arrays.asList(widgets.split(","));
-        for (int i = 0; i < preferences.length && i < widgetList.size(); i++) {
-            widgetKeysMap.put(preferences[i], widgetList.get(i).trim());
-        }
-    }
-
-    private void updateWidgetPreferences() {
-        List<String> mainWidgetsList = Arrays.asList(widgetKeysMap.get(mMainWidget1), widgetKeysMap.get(mMainWidget2));
-        List<String> extraWidgetsList = Arrays.asList(widgetKeysMap.get(mExtraWidget1), widgetKeysMap.get(mExtraWidget2), widgetKeysMap.get(mExtraWidget3), widgetKeysMap.get(mExtraWidget4));
-
-        mainWidgetsList = filterEmptyStrings(mainWidgetsList);
-        extraWidgetsList = filterEmptyStrings(extraWidgetsList);
-
-        String mainWidgets = TextUtils.join(",", mainWidgetsList);
-        String extraWidgets = TextUtils.join(",", extraWidgetsList);
-
-        Settings.System.putString(getActivity().getContentResolver(), "lockscreen_widgets", mainWidgets);
-        Settings.System.putString(getActivity().getContentResolver(), "lockscreen_widgets_extras", extraWidgets);
-    }
-
-    private List<String> filterEmptyStrings(List<String> inputList) {
-        return inputList.stream().filter(s -> !TextUtils.isEmpty(s)).collect(Collectors.toList());
     }
 
     private void updateWeatherSettings() {
