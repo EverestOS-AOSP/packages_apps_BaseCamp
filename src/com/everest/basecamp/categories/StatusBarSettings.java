@@ -41,6 +41,8 @@ import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.Indexable;
 import com.android.settingslib.search.SearchIndexable;
 
+import com.everest.support.preferences.CustomSeekBarPreference;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -52,6 +54,10 @@ public class StatusBarSettings extends SettingsPreferenceFragment
             implements Preference.OnPreferenceChangeListener {
 
     private static final String KEY_NETWORK_TRAFFIC = "network_traffic_state";
+    private static final String KEY_STATUSBAR_TOP_PADDING = "statusbar_top_padding";
+    private static final String KEY_STATUSBAR_LEFT_PADDING = "statusbar_left_padding";
+    private static final String KEY_STATUSBAR_RIGHT_PADDING = "statusbar_right_padding";
+    private static final String DEFAULT = "_default";
 
     private boolean enabled;
     private SystemSettingMasterSwitchPreference mNetworkTraffic;
@@ -71,6 +77,21 @@ public class StatusBarSettings extends SettingsPreferenceFragment
                 KEY_NETWORK_TRAFFIC, 0, UserHandle.USER_CURRENT) == 1;
         mNetworkTraffic.setChecked(enabled);
         mNetworkTraffic.setOnPreferenceChangeListener(this);
+
+        final int defaultLeftPadding = Settings.System.getIntForUser(getContentResolver(),
+                    KEY_STATUSBAR_LEFT_PADDING + DEFAULT, 0, UserHandle.USER_CURRENT);
+        CustomSeekBarPreference seekBar = findPreference(KEY_STATUSBAR_LEFT_PADDING);
+        seekBar.setDefaultValue(defaultLeftPadding, true);
+
+        final int defaultRightPadding = Settings.System.getIntForUser(getContentResolver(),
+                    KEY_STATUSBAR_RIGHT_PADDING + DEFAULT, 0, UserHandle.USER_CURRENT);
+        seekBar = findPreference(KEY_STATUSBAR_RIGHT_PADDING);
+        seekBar.setDefaultValue(defaultRightPadding, true);
+
+        final int defaultTopPadding = Settings.System.getIntForUser(getContentResolver(),
+                    KEY_STATUSBAR_TOP_PADDING + DEFAULT, 0, UserHandle.USER_CURRENT);
+        seekBar = findPreference(KEY_STATUSBAR_TOP_PADDING);
+        seekBar.setDefaultValue(defaultTopPadding, true);
     }
 
     @Override
