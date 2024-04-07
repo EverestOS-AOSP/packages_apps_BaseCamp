@@ -20,6 +20,7 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Color;
+import com.android.internal.util.everest.udfps.CustomUdfpsUtils;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.UserHandle;
@@ -29,6 +30,7 @@ import android.provider.Settings;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
+import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
 import androidx.preference.SwitchPreferenceCompat;
 
@@ -48,6 +50,10 @@ import java.util.List;
 public class ThemeSettings extends SettingsPreferenceFragment 
             implements Preference.OnPreferenceChangeListener {
 
+    private static final String UDFPS_CATEGORY = "udfps_category";
+
+    private PreferenceCategory mUdfpsCategory;
+
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -55,6 +61,11 @@ public class ThemeSettings extends SettingsPreferenceFragment
         PreferenceScreen prefSet = getPreferenceScreen();
         final Resources res = getResources();
         final PreferenceScreen prefScreen = getPreferenceScreen();
+
+        mUdfpsCategory = findPreference(UDFPS_CATEGORY);
+        if (!CustomUdfpsUtils.hasUdfpsSupport(getContext())) {
+            prefScreen.removePreference(mUdfpsCategory);
+        }
     }
 
     @Override
