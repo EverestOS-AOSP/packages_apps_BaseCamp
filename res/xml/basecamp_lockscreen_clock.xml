@@ -44,6 +44,10 @@
     <PreferenceCategory
         android:key="lockscreen_widgets"
         android:title="@string/lockscreen_widgets_title">
+        
+         <Preference
+            android:key="lockscreen_widgets_preview"
+            settings:layout="@layout/lockscreen_widgets_preview" />
 
         <com.everest.support.preferences.SystemSettingSwitchPreference
             android:key="lockscreen_widgets_enabled"
