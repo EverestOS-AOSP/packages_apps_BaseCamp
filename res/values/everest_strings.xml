@@ -726,4 +726,9 @@
     <string name="monet_engine_wallpaper_color_select_summary">Select a different accent color from your wallpaper</string>
     <string name="monet_engine_wallpaper_color_select_title">Wallpaper color selector</string>
     <string name="not_available">Not available</string>
+
+    <!-- Custom Fonts -->
+    <string name="theme_customization_lock_clock_title">Lockscreen clock font</string>
+    <string name="theme_customization_lock_clock_summary">Set LS clock font style</string>
 </resources>
+
