@@ -153,4 +153,9 @@
     <!-- window ignore secure -->
     <string name="miscellaneous_ignore_window_secure_title">Ignore window secure flags</string>
     <string name="miscellaneous_ignore_window_secure_summary">Remove restrictions on screenshots and screen recordings for all applications, potentially risking privacy leaks</string>
+
+    <!-- Hide on secure lock screen -->
+    <string name="quick_settings_lock_screen_category">Lock screen</string>
+    <string name="quick_settings_secure_lock_screen_title">Hide on secure lock screen</string>
+    <string name="quick_settings_secure_lock_screen_summary">Hide all quick settings in the notification shade while the device is locked</string>
 </resources>
