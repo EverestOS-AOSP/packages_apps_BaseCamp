@@ -705,10 +705,6 @@
     <string name="heads_up_snooze_15min">15 minutes</string>
     <string name="heads_up_snooze_20min">20 minutes</string>
 
-    <!-- Volume Haptic feedback -->
-    <string name="haptic_feedback_category">Haptic Feedback Settings</string>
-    <string name="volume_panel_haptic_feedback_title">Vibrate on changing volume</string>
-
     <!-- Monet Engine -->
     <string name="theming_category">Theming settings</string>
     <string name="monet_engine_title">Monet engine</string>
