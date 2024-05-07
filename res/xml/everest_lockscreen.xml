@@ -101,6 +101,13 @@
                android:title="@string/doze_on_charge_title"
                android:summary="@string/doze_on_charge_summary" />
 
+	<SwitchPreferenceCompat
+            android:key="fingerprint_success_vib"
+            android:title="@string/fprint_sucess_vib_title"
+            android:summary="@string/fprint_sucess_vib_summary"
+            android:persistent="false"
+            android:defaultValue="true" />
+
         <!-- Horizon Light Settings -->
         <Preference
             android:key="pulse_ambient_light_settings"

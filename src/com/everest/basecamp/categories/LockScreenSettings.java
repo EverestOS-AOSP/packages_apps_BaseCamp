@@ -20,15 +20,20 @@ import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.hardware.fingerprint.FingerprintManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.RemoteException;
+import android.os.ServiceManager;
 import android.os.UserHandle;
 import android.provider.MediaStore;
+import android.provider.Settings;
 import android.provider.SearchIndexableResource;
 import android.provider.Settings;
 import android.text.TextUtils;
@@ -39,6 +44,9 @@ import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
 import androidx.preference.SwitchPreferenceCompat;
+import android.view.IWindowManager;
+import android.view.View;
+import android.view.WindowManagerGlobal;
 
 import com.android.internal.logging.nano.MetricsProto;
 import com.android.internal.util.everest.OmniJawsClient;
@@ -74,6 +82,11 @@ public class LockScreenSettings extends SettingsPreferenceFragment
 
     private static final String KEY_WEATHER = "lockscreen_weather_enabled";
 
+    private static final String FINGERPRINT_VIB = "fingerprint_success_vib";
+
+    private FingerprintManager mFingerprintManager;
+    private SwitchPreferenceCompat mFingerprintVib;
+
     private Preference mWeather;
     private OmniJawsClient mWeatherClient;
 
@@ -106,6 +119,16 @@ public class LockScreenSettings extends SettingsPreferenceFragment
         mWeather = (Preference) findPreference(KEY_WEATHER);
         mWeatherClient = new OmniJawsClient(getContext());
         updateWeatherSettings();
+
+	mFingerprintManager = (FingerprintManager) getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
+        mFingerprintVib = (SwitchPreferenceCompat) findPreference(FINGERPRINT_VIB);
+        if (mFingerprintManager == null) {
+            prefScreen.removePreference(mFingerprintVib);
+        } else {
+            mFingerprintVib.setChecked((Settings.System.getInt(getContentResolver(),
+                Settings.System.FINGERPRINT_SUCCESS_VIB, 1) == 1));
+            mFingerprintVib.setOnPreferenceChangeListener(this);
+        }
     }
 
     @Override
@@ -116,10 +139,15 @@ public class LockScreenSettings extends SettingsPreferenceFragment
         	boolean value = (Boolean) newValue;
             Settings.Secure.putInt(resolver,
                     Settings.Secure.LOCKSCREEN_USE_DOUBLE_LINE_CLOCK, value ? 1 : 0);
-            return true; 
+            return true;
+        } else if (preference == mFingerprintVib) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.FINGERPRINT_SUCCESS_VIB, value ? 1 : 0);
+            return true;
         }
         return false;
-    }  
+    }
 
     public static void reset(Context mContext) {
         ContentResolver resolver = mContext.getContentResolver();
