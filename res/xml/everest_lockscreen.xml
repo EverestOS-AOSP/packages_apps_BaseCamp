@@ -33,27 +33,11 @@
      <PreferenceCategory
         android:title="Depth Wallpaper">
 
-        <com.everest.support.preferences.SystemSettingSwitchPreference
-            android:key="depth_wallpaper_enabled"
+        <Preference
+            android:key="depth_wallpaper"
             android:title="@string/dw_wallpaper_enabled_title"
             android:summary="@string/dw_wallpaper_enabled_summary"
-            android:defaultValue="false" />
-
-        <Preference
-            android:key="depth_wallpaper_subject_image_uri"
-            android:dependency="depth_wallpaper_enabled"
-            android:title="@string/dw_file_header_select_title"
-            android:summary="@string/dw_file_header_select_summary"
-            android:persistent="false" />
-
-        <com.everest.support.preferences.SystemSettingSeekBarPreference
-            android:key="depth_wallpaper_opacity"
-            android:title="@string/dw_wallpaper_opacity_title"
-            android:max="100"
-            settings:min="1"
-            settings:interval="1"
-            settings:units="%"
-            android:defaultValue="100" />
+            android:fragment="com.everest.basecamp.fragments.WallpaperDepth" />
 
      </PreferenceCategory>
 
