@@ -116,4 +116,9 @@
     <!-- Screen-Off UDFPS -->
     <string name="lock_screen_screen_off_udfps_title">Screen-Off UDFPS</string>
     <string name="lock_screen_screen_off_udfps_summary">Keep UDFPS enabled while the screen is off</string>
+
+    <!-- Udfps animation -->
+    <string name="themes_animations_category">Udfps Animations and Icons</string>
+    <string name="themes_udfps_animation_title">UDFPS animation</string>
+    <string name="themes_udfps_animation_summary">Set UDFPS animation style</string>
 </resources>
