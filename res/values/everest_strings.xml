@@ -112,4 +112,8 @@
     <string name="lock_screen_fingerprint_success_vibration_summary">Vibrate when fingerprint authentication is successful</string>
     <string name="lock_screen_fingerprint_error_vibration_title">Authentication error vibration</string>
     <string name="lock_screen_fingerprint_error_vibration_summary">Vibrate when fingerprint authentication fails</string>
+
+    <!-- Screen-Off UDFPS -->
+    <string name="lock_screen_screen_off_udfps_title">Screen-Off UDFPS</string>
+    <string name="lock_screen_screen_off_udfps_summary">Keep UDFPS enabled while the screen is off</string>
 </resources>
