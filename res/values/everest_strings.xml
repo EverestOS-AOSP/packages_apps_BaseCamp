@@ -891,4 +891,8 @@
     <string name="notification_sound_vib_screen_on_title">Annoying Notifications</string>
     <string name="notification_sound_vib_screen_on_summary">Play sound and vibration for
          notifications when screen is on</string>
+
+    <!-- Volume Row Percent -->
+    <string name="volume_show_volume_percent_title">Show Volume Row Percentage</string>
+    <string name="volume_show_volume_percent_summary">Show volume row progress percentage</string>
 </resources>
