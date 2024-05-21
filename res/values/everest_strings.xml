@@ -895,4 +895,8 @@
     <!-- Volume Row Percent -->
     <string name="volume_show_volume_percent_title">Show Volume Row Percentage</string>
     <string name="volume_show_volume_percent_summary">Show volume row progress percentage</string>
+
+    <!-- Multi user avatar on homepage -->
+    <string name="show_multi_user_avatar_on_homepage_title">Show Multi-user avatar on homepage</string>
+    <string name="show_multi_user_avatar_on_homepage_summary">Wether to show multi-user or google avatar on homepage</string>
 </resources>

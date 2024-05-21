@@ -22,6 +22,13 @@
             android:title="@string/app_downgrade_title"
             android:summary="@string/app_downgrade_summary"
             android:defaultValue="false"/>
+
+        <!-- Multi user avatar on homepage -->
+        <com.everest.support.preferences.SystemSettingSwitchPreference
+            android:key="show_multi_user_avatar_on_homepage"
+            android:title="@string/show_multi_user_avatar_on_homepage_title"
+            android:summary="@string/show_multi_user_avatar_on_homepage_summary"
+            android:defaultValue="true" />
     
     </PreferenceCategory>
 
