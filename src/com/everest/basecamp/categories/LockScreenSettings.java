@@ -46,7 +46,7 @@ import android.view.WindowManagerGlobal;
 
 import com.android.internal.logging.nano.MetricsProto;
 import com.android.internal.util.everest.OmniJawsClient;
-
+import com.android.internal.util.everest.systemUtils;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
@@ -71,6 +71,8 @@ public class LockScreenSettings extends SettingsPreferenceFragment
 
     private static final String FINGERPRINT_VIB = "fingerprint_success_vib";
 
+    private static final String KEY_KG_USER_SWITCHER= "kg_user_switcher_enabled";
+
     private FingerprintManager mFingerprintManager;
     private SwitchPreferenceCompat mFingerprintVib;
 
@@ -79,6 +81,8 @@ public class LockScreenSettings extends SettingsPreferenceFragment
 
     	private SwitchPreferenceCompat mKGCustomClockColor;
     	private SecureSettingSwitchPreference mDoubleLineClock;
+
+    private Preference mUserSwitcher;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -112,6 +116,9 @@ public class LockScreenSettings extends SettingsPreferenceFragment
                 Settings.System.FINGERPRINT_SUCCESS_VIB, 1) == 1));
             mFingerprintVib.setOnPreferenceChangeListener(this);
         }
+
+        mUserSwitcher = (Preference) findPreference(KEY_KG_USER_SWITCHER);
+        mUserSwitcher.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -127,6 +134,9 @@ public class LockScreenSettings extends SettingsPreferenceFragment
             boolean value = (Boolean) newValue;
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.FINGERPRINT_SUCCESS_VIB, value ? 1 : 0);
+            return true;
+        } else if (preference == mUserSwitcher) {
+            systemUtils.showSystemUIRestartDialog(getContext());
             return true;
         }
         return false;
