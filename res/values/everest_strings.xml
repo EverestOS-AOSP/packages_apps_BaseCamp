@@ -840,5 +840,20 @@
     <string name="udfps_icon_picker_summary">Choose your favorite fingerprint icon</string>
     <string name="udfps_recog_animation_effect_title">UDFPS custom animation</string>
     <string name="udfps_recog_animation_effect_summary">Choose animation effect</string>
+
+    <!-- Edge Light -->
+    <string name="notifications_edge_light_title">Edge light</string>
+    <string name="notifications_edge_light_summary">Light up the side edges of the screen on notification pulse</string>
+    <string name="notifications_edge_light_enable_ttile">Enable</string>
+    <string name="notifications_edge_light_always_trigger_on_pulse_title">Always trigger on pulse</string>
+    <string name="notifications_edge_light_always_trigger_on_pulse_summary">Whether to show edge light whenever ambient display is shown and not just for notifications</string>
+    <string name="notifications_edge_light_repeat_animation_title">Repeat animation</string>
+    <string name="notifications_edge_light_repeat_animation_summary_on">Repeat until timeout</string>
+    <string name="notifications_edge_light_repeat_animation_summary_off">Show only once</string>
+    <string name="notifications_edge_light_color_mode_title">Edge light color mode</string>
+    <string name="accent_color">Accent color (Default)</string>
+    <string name="notification_color">Notification color</string>
+    <string name="wallpaper_color">Wallpaper color</string>
+    <string name="custom_color">Custom color</string>
 </resources>
 
