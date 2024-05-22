@@ -33,6 +33,7 @@ import androidx.preference.PreferenceScreen;
 import androidx.preference.SwitchPreferenceCompat;
 
 import com.android.internal.logging.nano.MetricsProto;
+import com.android.internal.util.everest.systemUtils;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -48,7 +49,10 @@ import java.util.List;
 public class QuickSettings extends SettingsPreferenceFragment 
             implements Preference.OnPreferenceChangeListener {
 
+    private static final String KEY_QS_COMPACT_PLAYER  = "qs_compact_media_player_mode";
+
     private ListPreference mQuickPulldown;
+    private Preference mQsCompactPlayer;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -65,6 +69,9 @@ public class QuickSettings extends SettingsPreferenceFragment
         mQuickPulldown.setValue(String.valueOf(qpmode));
         mQuickPulldown.setSummary(mQuickPulldown.getEntry());
         mQuickPulldown.setOnPreferenceChangeListener(this);
+
+        mQsCompactPlayer = (Preference) findPreference(KEY_QS_COMPACT_PLAYER);
+        mQsCompactPlayer.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -78,6 +85,9 @@ public class QuickSettings extends SettingsPreferenceFragment
             int index = mQuickPulldown.findIndexOfValue((String) newValue);
             mQuickPulldown.setSummary(
                     mQuickPulldown.getEntries()[index]);
+            return true;
+        } else if (preference == mQsCompactPlayer) {
+            systemUtils.showSystemUIRestartDialog(getActivity());
             return true;
         }
         return false;
