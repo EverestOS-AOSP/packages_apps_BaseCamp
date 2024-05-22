@@ -67,6 +67,9 @@ public class LockScreenSettings extends SettingsPreferenceFragment
 
     private static final String KEY_KG_USER_SWITCHER= "kg_user_switcher_enabled";
 
+    private static final String KEY_AUTHENTICATION_SUCCESS = "fp_success_vibrate";
+    private static final String KEY_AUTHENTICATION_ERROR = "fp_error_vibrate";
+
     private Preference mWeather;
     private OmniJawsClient mWeatherClient;
 
@@ -171,6 +174,8 @@ public class LockScreenSettings extends SettingsPreferenceFragment
 
                 if (fingerprintManager == null || !fingerprintManager.isHardwareDetected()) {
                     keys.add(KEY_RIPPLE_EFFECT);
+                    keys.add(KEY_AUTHENTICATION_SUCCESS);
+                    keys.add(KEY_AUTHENTICATION_ERROR);
                 }
                     return keys;
                 }
