@@ -33,6 +33,7 @@ import androidx.preference.PreferenceScreen;
 import androidx.preference.SwitchPreferenceCompat;
 
 import com.android.internal.logging.nano.MetricsProto;
+import com.android.internal.util.everest.systemUtils;
 import com.android.internal.util.everest.ThemeUtils;
 
 import com.android.settings.R;
@@ -53,9 +54,11 @@ public class QuickSettings extends SettingsPreferenceFragment
             implements Preference.OnPreferenceChangeListener {
 
     private static final String KEY_QS_PANEL_STYLE  = "qs_panel_style";
+    private static final String KEY_QS_COMPACT_PLAYER  = "qs_compact_media_player_mode";
 
     private ListPreference mQuickPulldown;
     private ListPreference mQsPanelStyle;
+    private Preference mQsCompactPlayer;
 
     private static ThemeUtils mThemeUtils;
 
@@ -86,6 +89,9 @@ public class QuickSettings extends SettingsPreferenceFragment
         mQsPanelStyle.setValue(qsPanelStyle);
         mQsPanelStyle.setSummary(mQsPanelStyle.getEntries()[index]);
         mQsPanelStyle.setOnPreferenceChangeListener(this);
+
+        mQsCompactPlayer = (Preference) findPreference(KEY_QS_COMPACT_PLAYER);
+        mQsCompactPlayer.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -108,6 +114,9 @@ public class QuickSettings extends SettingsPreferenceFragment
             Settings.System.putIntForUser(resolver,
                     Settings.System.QS_PANEL_STYLE, value, UserHandle.USER_CURRENT);
             updateQsPanelStyle(getActivity());
+            return true;
+        } else if (preference == mQsCompactPlayer) {
+            systemUtils.showSystemUIRestartDialog(getActivity());
             return true;
         }
         return false;
