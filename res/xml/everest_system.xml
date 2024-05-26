@@ -43,6 +43,12 @@
         android:summary="@string/sound_engine_summary"
         android:fragment="com.everest.basecamp.fragments.sound.SoundEngine" />
 
+        <com.everest.support.preferences.SystemSettingSwitchPreference
+            android:key="volume_sound_haptics"
+            android:title="@string/volume_sound_haptics_title"
+            android:summary="@string/volume_sound_haptics_summary"
+            android:defaultValue="false"/>
+
     </PreferenceCategory>
 
     <PreferenceCategory
