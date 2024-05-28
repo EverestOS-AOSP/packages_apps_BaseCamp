@@ -509,9 +509,9 @@
     <string name="wifi_standard_icon_title">WiFi standard</string>
     <string name="wifi_standard_icon_summary">Display WiFi standard next to WiFi signal</string>
 
-    <!-- Unlimited google photos storage -->
-    <string name="use_photos_spoof_title">Unlimited Photos storage</string>
-    <string name="use_photos_spoof_summary">Spoof your device as Pixel XL for Google Photos app only to provide unlimited storage for backup</string>
+    <!-- Unlimited g00gle ph0t0s st0rage -->
+    <string name="unlimited_photos_storage_title">Unlimited Google Photos storage</string>
+    <string name="unlimited_photos_storage_summary">Unlimited storage for backup photos. Google Photos’ new features will not be available.</string>
 
     <!-- Unlock FPS for specific games -->
     <string name="spoofing_category">Spoofing</string>
