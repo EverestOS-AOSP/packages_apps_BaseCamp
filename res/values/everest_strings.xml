@@ -97,6 +97,17 @@
     <string name="lockscreen_enable_power_menu_summary">Allow accessing power menu on secure
          lockscreen</string>
 
+     <!-- Play Integrity -->
+     <string name="playintegrity_category">Play Integrity Updater</string>
+     <string name="playintegrity_summary">Update to latest play integrity fingerprint</string>
+     <string name="play_integrity_dashboard_title">Play Integrity</string>
+     <string name="play_integrity_summary">Adjust Play Integrity settings</string>
+     <string name="play_integrity_update_title">Update Play Integrity Patch</string>
+     <string name="play_integrity_update_summary">Download and apply latest fingerprint to spoof</string>
+     <string name="play_update_title">Update Fingerprint</string>
+     <string name="play_fingerprint">Current spoofed values</string>
+     <string name="play_integrity_certification_url">https://gitlab.com/everestos/vendor_certification/-/raw/qpr3/CertificationOverlay/res/values/config.xml</string>
+
      <!-- Status bar - Clock -->
      <string name="status_bar_clock_title">Clock &amp; date</string>
      <string name="status_bar_clock_summary">Customize clock &amp; date</string>

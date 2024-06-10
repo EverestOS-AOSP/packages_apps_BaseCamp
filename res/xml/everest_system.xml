@@ -65,6 +65,18 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="playintegrity"
+        android:title="@string/playintegrity_category">
+
+        <Preference
+            android:key="pintegrity_category"
+            android:title="@string/play_integrity_dashboard_title"
+            android:summary="@string/playintegrity_summary"
+            android:fragment="com.everest.basecamp.fragments.playintegrity.PlayIntegrity" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="incall_vib_options"
         android:title="@string/incall_vibration_category" >
 
