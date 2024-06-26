@@ -11,7 +11,7 @@
     <PreferenceCategory
         android:title="@string/setstyles_category">
 
-        <com.everest.support.preferences.SystemSettingSeekBarPreference
+        <com.everest.support.preferences.GlobalSettingSwitchPreference
             android:max="100"
             android:title="@string/header_blur_title"
             android:summary="@string/header_blur_summary"
