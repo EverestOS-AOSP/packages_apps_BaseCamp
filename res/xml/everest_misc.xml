@@ -25,6 +25,12 @@
             android:summary="@string/smart_pixels_summary"
             android:fragment="com.everest.basecamp.fragments.SmartPixels" />
 
+        <com.everest.support.preferences.GlobalSettingSwitchPreference
+            android:key="hide_screen_capture_status"
+            android:title="@string/hide_screen_capture_status_title"
+            android:summary="@string/hide_screen_capture_status_summary"
+            android:defaultValue="false"/>
+
         <!-- Ignore window secure flags -->
         <com.everest.support.preferences.GlobalSettingSwitchPreference
             android:key="window_ignore_secure"
