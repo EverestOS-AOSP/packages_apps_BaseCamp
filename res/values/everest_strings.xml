@@ -247,4 +247,8 @@
     <!-- Navigation -->
     <string name="navigation_bar_category">Navigation Bar</string>
     <string name="system_navigation_summary">Configure navigation menus</string>
+
+    <!-- System Vibration and Haptics -->
+    <string name="system_vibration_title">System Vibration Settings</string>
+    <string name="system_vibration_summary">Control Vibration and Haptics</string>
 </resources>
