@@ -39,5 +39,13 @@
             android:title="@string/lock_screen_screen_off_udfps_title"
             android:summary="@string/lock_screen_screen_off_udfps_summary"
             android:defaultValue="false" />
+
+        <com.everest.support.preferences.SystemSettingSwitchPreference
+            android:key="lockscreen_show_carrier"
+            android:icon="@drawable/ic_sim_outline"
+            android:title="@string/lockscreen_show_carrier_title"
+            android:summary="@string/lockscreen_show_carrier_summary"
+            android:defaultValue="true" />
+
     </PreferenceCategory>
 </PreferenceScreen>

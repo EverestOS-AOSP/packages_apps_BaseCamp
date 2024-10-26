@@ -182,4 +182,8 @@
     <!-- Hide screen capture status -->
     <string name="hide_screen_capture_status_title">Hide screen capture status</string>
     <string name="hide_screen_capture_status_summary">Hide screen capture and screen record status from all applications. Can be convenient in some cases but may lead to privacy leaks. Need to restart applications for the change to take effect.</string>
+
+    <!-- Carrier name on lockscreen -->
+    <string name="lockscreen_show_carrier_title">Carrier name</string>
+    <string name="lockscreen_show_carrier_summary">Display carrier name in the status bar</string>
 </resources>
